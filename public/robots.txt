@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://TeletaDevelopment.com
-
-# Sitemaps
-Sitemap: https://TeletaDevelopment.com/sitemap.xml
