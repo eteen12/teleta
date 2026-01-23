@@ -9,68 +9,69 @@ import { PlanComparisonTable } from '@/components/sections/plan-comparison-table
 import { Plan, PricingHeroMultiTier } from '@/components/sections/pricing-hero-multi-tier'
 import { TestimonialTwoColumnWithLargePhoto } from '@/components/sections/testimonial-two-column-with-large-photo'
 
+// Your new data source
+const tiersData = [
+  {
+    name: 'Solo',
+    price: { monthly: '$30', annually: '$330' },
+    description: 'Everything you need to stay organized—without the admin.',
+    features: ['Voice to CRM/tasks', 'Task follow up & scheduling', 'Unlimited voice interactions'],
+    featured: false,
+  },
+  {
+    name: 'Pro',
+    price: { monthly: '$39', annually: '$445' },
+    description: 'Built for agents closing deals every month.',
+    features: [
+      'Voice to CRM/tasks',
+      'Task follow up & scheduling',
+      'Calendar + email sync',
+      'Context-aware follow-ups from email conversations',
+      'CRM insights',
+    ],
+    featured: true,
+  },
+  {
+    name: 'Teams',
+    price: { monthly: '$320', annually: '$3700' },
+    description: 'Dedicated support and infrastructure for your company.',
+    features: ['Everything in pro', 'Multiple agents under 1 account', 'Max 10 agents'],
+    featured: false,
+  },
+]
+
 function plans(option: string) {
+  // Helper to get the correct price based on the toggle state
+  const getPrice = (tier: (typeof tiersData)[0]) => (option === 'Monthly' ? tier.price.monthly : tier.price.annually)
+
+  // Helper to determine the period text
+  const getPeriod = () => (option === 'Monthly' ? '/month' : '/year')
+
   return (
     <>
-      <Plan
-        name="Starter"
-        price={option === 'Monthly' ? '$12' : '$120'}
-        period={option === 'Monthly' ? '/month' : '/year'}
-        subheadline={<p>Small teams getting started with shared inboxes</p>}
-        features={[
-          'Shared inbox for up to 2 mailboxes',
-          'Tagging & assignment',
-          'Private notes',
-          'Automatic replies',
-          'Email support',
-        ]}
-        cta={
-          <SoftButtonLink href="#" size="lg">
-            Start free trial
-          </SoftButtonLink>
-        }
-      />
-      <Plan
-        name="Growth"
-        price={option === 'Monthly' ? '$49' : '$490'}
-        period={option === 'Monthly' ? '/month' : '/year'}
-        subheadline={<p>Growing teams needing collaboration and insights</p>}
-        badge="Most popular"
-        features={[
-          'Everything in Starter',
-          'Inbox Agent',
-          'Unlimited mailboxes',
-          'Collision detection',
-          'Snippets and templates',
-          'Reporting dashboard',
-          'Slack integration',
-        ]}
-        cta={
-          <ButtonLink href="#" size="lg">
-            Start free trial
-          </ButtonLink>
-        }
-      />
-      <Plan
-        name="Pro"
-        price={option === 'Monthly' ? '$299' : '$2990'}
-        period={option === 'Monthly' ? '/month' : '/year'}
-        subheadline={<p>Support-focused organizations and larger teams</p>}
-        features={[
-          'Everything in Growth',
-          'Custom roles & permissions',
-          'Automation engine',
-          'API access',
-          'SLA tracking',
-          'SSO support',
-          'SOC 2 compliance',
-        ]}
-        cta={
-          <SoftButtonLink href="#" size="lg">
-            Start free trial
-          </SoftButtonLink>
-        }
-      />
+      {tiersData.map((tier) => (
+        <Plan
+          key={tier.name}
+          name={tier.name}
+          price={getPrice(tier)}
+          period={getPeriod()}
+          subheadline={<p>{tier.description}</p>}
+          badge={tier.featured ? 'Most Popular' : undefined}
+          features={tier.features}
+          cta={
+            // Use the solid ButtonLink for the featured plan, Soft for others
+            tier.featured ? (
+              <ButtonLink href="#" size="lg">
+                Start free trial
+              </ButtonLink>
+            ) : (
+              <SoftButtonLink href="#" size="lg">
+               Buy now
+              </SoftButtonLink>
+            )
+          }
+        />
+      ))}
     </>
   )
 }
@@ -81,258 +82,77 @@ export default function Page() {
       {/* Hero */}
       <PricingHeroMultiTier
         id="pricing"
-        headline="Pricing"
+        headline="Purchasing not yet available"
         subheadline={
           <p>
-            Simplify your shared inbox, collaborate effortlessly, and give every customer a reply that feels personal,
-            even if it was written by a bot.
+            coming soon!
           </p>
         }
         options={['Monthly', 'Yearly']}
         plans={{ Monthly: plans('Monthly'), Yearly: plans('Yearly') }}
-        footer={
-          <LogoGrid>
-            <Logo>
-              <Image
-                src="/img/logos/9-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={51}
-                height={32}
-              />
-              <Image
-                src="/img/logos/9-color-white-height-32.svg"
-                className="not-dark:hidden"
-                alt=""
-                width={51}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/10-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={70}
-                height={32}
-              />
-              <Image
-                src="/img/logos/10-color-white-height-32.svg"
-                className="not-dark:hidden"
-                alt=""
-                width={70}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/11-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={100}
-                height={32}
-              />
-              <Image
-                src="/img/logos/11-color-white-height-32.svg"
-                className="not-dark:hidden"
-                alt=""
-                width={100}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/12-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-              <Image
-                src="/img/logos/12-color-white-height-32.svg"
-                className="not-dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/13-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={75}
-                height={32}
-              />
-              <Image
-                src="/img/logos/13-color-white-height-32.svg"
-                className="not-dark:hidden"
-                alt=""
-                width={75}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/8-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-              <Image
-                src="/img/logos/8-color-white-height-32.svg"
-                className="not-dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-            </Logo>
-          </LogoGrid>
-        }
+      
       />
       {/* Plan Comparison Table */}
       <PlanComparisonTable
         id="pricing"
-        plans={['Starter', 'Growth', 'Pro']}
+        plans={['Solo', 'Pro', 'Teams']}
         features={[
           {
-            title: 'Collaboration',
+            title: 'Core Features',
             features: [
               {
-                name: 'Shared inboxes',
-                value: { Starter: '2', Growth: 'Unlimited', Pro: 'Unlimited' },
-              },
-              { name: 'Private notes', value: true },
-              { name: 'Tagging & assignment', value: true },
-              {
-                name: 'Collision detection',
-                value: { Starter: false, Growth: true, Pro: true },
+                name: 'Voice to CRM/tasks',
+                value: { Solo: true, Pro: true, Teams: true },
               },
               {
-                name: 'Real-time activity indicators',
-                value: { Starter: false, Growth: true, Pro: true },
+                name: 'Task follow up & scheduling',
+                value: { Solo: true, Pro: true, Teams: true },
               },
               {
-                name: 'Internal chat',
-                value: { Starter: false, Growth: true, Pro: true },
+                name: 'Unlimited voice interactions',
+                value: { Solo: true, Pro: true, Teams: true },
               },
             ],
           },
           {
-            title: 'Automation',
+            title: 'Intelligence & Sync',
             features: [
-              { name: 'Automatic replies', value: true },
               {
-                name: 'Inbox Agent',
-                value: { Starter: false, Growth: true, Pro: true },
+                name: 'Calendar + email sync',
+                value: { Solo: false, Pro: true, Teams: true },
               },
               {
-                name: 'Automation engine',
-                value: { Starter: false, Growth: true, Pro: true },
+                name: 'Context-aware follow-ups',
+                value: { Solo: false, Pro: true, Teams: true },
               },
               {
-                name: 'Snippets and templates',
-                value: { Starter: false, Growth: true, Pro: true },
-              },
-              {
-                name: 'SLA tracking',
-                value: { Starter: false, Growth: false, Pro: true },
+                name: 'CRM insights',
+                value: { Solo: false, Pro: true, Teams: true },
               },
             ],
           },
           {
-            title: 'Team Management',
+            title: 'Team & Scale',
             features: [
               {
-                name: 'Unlimited users',
-                value: { Starter: 'Up to 5', Growth: true, Pro: true },
+                name: 'Multiple agents',
+                value: { Solo: false, Pro: false, Teams: true },
               },
               {
-                name: 'Reporting dashboard',
-                value: { Starter: false, Growth: true, Pro: true },
-              },
-              {
-                name: 'Slack integration',
-                value: { Starter: false, Growth: true, Pro: true },
-              },
-              {
-                name: 'Roles & permissions',
-                value: { Starter: false, Growth: false, Pro: true },
-              },
-              {
-                name: 'SSO support',
-                value: { Starter: false, Growth: false, Pro: true },
-              },
-            ],
-          },
-          {
-            title: 'Support',
-            features: [
-              { name: 'Email support', value: true },
-              {
-                name: 'Priority response',
-                value: { Starter: false, Growth: true, Pro: true },
-              },
-              {
-                name: 'Dedicated manager',
-                value: { Starter: false, Growth: false, Pro: true },
+                name: 'Max Agents',
+                value: { Solo: '1', Pro: '1', Teams: '10' },
               },
             ],
           },
         ]}
       />
-      {/* Testimonial */}
-      <TestimonialTwoColumnWithLargePhoto
-        id="testimonial"
-        quote={
-          <p>
-            Ever since we started using Oatmeal, our customer satisfaction scores have skyrocketed. The personal touch
-            that their human-AI hybrid support provides is unparalleled.
-          </p>
-        }
-        img={
-          <Image
-            src="/img/avatars/16-h-1000-w-1400.webp"
-            alt=""
-            className="not-dark:bg-white/75 dark:bg-black/75"
-            width={1400}
-            height={1000}
-          />
-        }
-        name="Lynn Marshall"
-        byline="Founder at Pine Labs"
-      />
-      {/* FAQs */}
-      <FAQsAccordion id="faqs" headline="Questions & Answers">
-        <Faq
-          id="faq-1"
-          question="Do I need a credit card to start the free trial?"
-          answer="Yes, but don't worry, you won't be charged until the trial period is over. We won't send you an email reminding you when this happens because we are really hoping you'll forget and we can keep charging you until your cards expires"
-        />
-        <Faq
-          id="faq-2"
-          question="Can my whole team use the same inbox?"
-          answer="Yes, the more the merrier! Oatmeal works best when your entire company has access. We will charge you per additional seat, but we won't tell you about this until you get your invoice."
-        />
-        <Faq
-          id="faq-3"
-          question="Is the AI agent actually a bunch of people in India?"
-          answer="Not just India! We have people in lots of countries around the world pretending to be an AI, including some that are currently under sanctions, so we can't legally mention them here."
-        />
-        <Faq
-          id="faq-4"
-          question="Does Oatmeal replace my email client?"
-          answer="Absolutely. The idea is that we transition you away from email entirely, so you become completely dependent on our service. Like a parasite living off a host."
-        />
-      </FAQsAccordion>
+     
+     
       {/* Call To Action */}
       <CallToActionSimpleCentered
         id="call-to-action"
-        headline="Have anymore questions?"
-        subheadline={
-          <p>Chat to someone on our sales team, who will make promises about our roadmap that we won't keep.</p>
-        }
+        headline="Ready to streamline your workflow?"
+        subheadline={<p>Chat to our sales team or book a demo to see how we can help you close more deals.</p>}
         cta={
           <div className="flex items-center gap-4">
             <ButtonLink href="#" size="lg">
@@ -348,3 +168,4 @@ export default function Page() {
     </>
   )
 }
+  

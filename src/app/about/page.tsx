@@ -1,10 +1,9 @@
 import Image from 'next/image'
 
-import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
+import { ButtonLinkExternal, PlainButtonLink } from '@/components/elements/button'
 import { ChevronIcon } from '@/components/icons/chevron-icon'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { HeroLeftAlignedWithPhoto } from '@/components/sections/hero-left-aligned-with-photo'
-import { Stat, StatsWithGraph } from '@/components/sections/stats-with-graph'
 import { TeamFourColumnGrid, TeamMember } from '@/components/sections/team-four-column-grid'
 import { TestimonialTwoColumnWithLargePhoto } from '@/components/sections/testimonial-two-column-with-large-photo'
 
@@ -14,16 +13,17 @@ export default function Page() {
       {/* Hero */}
       <HeroLeftAlignedWithPhoto
         id="hero"
-        headline="Your customer success is our mission."
+        headline="Why we built Teleta Vox"
         subheadline={
           <p>
-            We're on a mission to take the human element completely out of customer support — so your team can focus on
-            what matters most, profitability.
+            Teleta Vox was born from a conversation between a UBCO student and a realtor about the friction in existing
+            industry tools. Following an MIT hackathon, a small team got an idea and began building and refining the
+            product, with a focus on real-world usability and market readiness.
           </p>
         }
         photo={
           <Image
-            src="/img/photos/1.webp"
+            src="/team/team.jpeg"
             alt=""
             width={1800}
             height={945}
@@ -31,157 +31,85 @@ export default function Page() {
           />
         }
       />
-      {/* Stats */}
-      <StatsWithGraph
-        id="stats"
-        eyebrow="Built for scale"
-        headline="The inbox powering customer conversations everywhere."
-        subheadline={
-          <p>
-            Oatmeal helps teams deliver personal, organized, and fast customer support across the world. From small
-            startups to enterprise teams, we process millions of messages each month — using a massive network of low
-            wage workers stationed around the globe.
-          </p>
-        }
-      >
-        <Stat stat="2M+" text="Emails manually processed every week across thousands of teams." />
-        <Stat stat="99.98%" text="Uptime — because your customers never stop complaining." />
-      </StatsWithGraph>
+
       {/* Testimonial */}
       <TestimonialTwoColumnWithLargePhoto
         id="testimonial"
-        quote={
-          <p>
-            Ever since we started using Oatmeal, our customer satisfaction scores have skyrocketed. The personal touch
-            that their human-AI hybrid support provides is unparalleled.
-          </p>
-        }
+        quote={<p>I&apos;ll be done that by monday.</p>}
         img={
           <Image
-            src="/img/avatars/16-h-1000-w-1400.webp"
+            src="/team/ahab.JPG"
             alt=""
             className="not-dark:bg-white/75 dark:bg-black/75"
             width={1400}
             height={1000}
           />
         }
-        name="Lynn Marshall"
-        byline="Founder at Pine Labs"
+        name="Ahab Masud"
+        byline="Software Developer"
       />
       {/* Team */}
       <TeamFourColumnGrid
         id="team"
-        headline="Our leadership team"
+        headline="Our team at Teleta Development"
         subheadline={
           <p>
-            Oatmeals's leadership team combines decades of experience in private equity, where they honed their skills
-            in cost-cutting and maximizing shareholder value.
+            We started as a small group of developers working closely with industry professionals to build better tools
+            from the ground up.
           </p>
         }
       >
         <TeamMember
           img={
             <Image
-              src="/img/avatars/1-h-1000-w-800.webp"
+              src="/team/dave.png"
               alt=""
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Leslie Alexander"
-          byline="Co-Founder / CEO"
+          name="David Alton"
+          byline="Co-Founder / Marketing / Realtor"
         />
         <TeamMember
           img={
             <Image
-              src="/img/avatars/2-h-1000-w-800.webp"
+              src="/team/ethan.png"
               alt=""
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Michael Foster"
-          byline="Co-Founder / CTO"
+          name="Ethan Breitkreutz"
+          byline="Co-Founder / Software developer"
         />
         <TeamMember
           img={
             <Image
-              src="/img/avatars/7-h-1000-w-800.webp"
+              src="/team/av.png"
               alt=""
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Dries Vincent"
-          byline="Business Relations"
+          name="Advaith Madhu"
+          byline="Software developer"
         />
         <TeamMember
           img={
             <Image
-              src="/img/avatars/4-h-1000-w-800.webp"
+              src="/team/ahab2.png"
               alt=""
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Lindsay Walton"
-          byline="Front-end Developer"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/5-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Noor Hasan"
-          byline="Designer"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/6-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Tom Cook"
-          byline="Director of Product"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/8-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Whitney Francis"
-          byline="Copywriter"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/3-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Leonard Wu"
-          byline="Senior Designer"
+          name="Ahab Masud"
+          byline="Software developer"
         />
       </TeamFourColumnGrid>
       {/* Call To Action */}
@@ -193,13 +121,11 @@ export default function Page() {
         }
         cta={
           <div className="flex items-center gap-4">
-            <ButtonLink href="#" size="lg">
-              Chat with us
-            </ButtonLink>
+            <ButtonLinkExternal href="https://www.linkedin.com/company/teletadevelopment/" size="lg">
+              Contact us
+            </ButtonLinkExternal>
 
-            <PlainButtonLink href="#" size="lg">
-              Book a demo <ChevronIcon />
-            </PlainButtonLink>
+          
           </div>
         }
       />
