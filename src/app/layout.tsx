@@ -17,7 +17,20 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Teleta Development',
+  title: 'Teleta Development | AI-powered SaaS Solutions',
+  description:
+    'AI-powered SaaS company providing automated software solutions to help businesses streamline workflows and enhance productivity.',
+
+  openGraph: {
+    title: 'Teleta Development | AI-powered SaaS Solutions',
+    description:
+      'AI-powered SaaS company providing automated software solutions to help businesses streamline workflows and enhance productivity.',
+    url: 'https://teleta.dev/',
+    siteName: 'Teleta Development',
+    locale: 'en_US',
+    type: 'website',
+    images: 'https://teletadevelopment.ca/product/mainPhoto.png',
+  },
 }
 
 export default function RootLayout({
@@ -28,6 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Teleta" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />

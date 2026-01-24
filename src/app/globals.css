@@ -21,13 +21,12 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-     letter-spacing: -0.02em;
-    background-color: var(--color-mist-100);
+    letter-spacing: -0.02em;
+
+    /* Always dark mode */
+    background-color: var(--color-mist-950);
+
     --scroll-padding-top: 0;
     scroll-padding-top: var(--scroll-padding-top);
-
-    @variant dark {
-      background-color: var(--color-mist-950);
-    }
   }
 }

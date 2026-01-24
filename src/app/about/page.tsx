@@ -46,7 +46,7 @@ export default function Page() {
           />
         }
         name="Ahab Masud"
-        byline="Software Developer"
+        byline="Founding engineer"
       />
       {/* Team */}
       <TeamFourColumnGrid
@@ -96,7 +96,7 @@ export default function Page() {
             />
           }
           name="Advaith Madhu"
-          byline="Software developer"
+          byline="Founding engineer"
         />
         <TeamMember
           img={
@@ -109,7 +109,7 @@ export default function Page() {
             />
           }
           name="Ahab Masud"
-          byline="Software developer"
+          byline="Founding engineer"
         />
       </TeamFourColumnGrid>
       {/* Call To Action */}
