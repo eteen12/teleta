@@ -23,10 +23,16 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.02em;
 
-    /* Always dark mode */
-    background-color: var(--color-mist-950);
+    /* Light mode default */
+    background-color: var(--color-mist-100);
 
     --scroll-padding-top: 0;
     scroll-padding-top: var(--scroll-padding-top);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      background-color: var(--color-mist-950);
+    }
   }
 }

@@ -62,13 +62,27 @@ export default function RootLayout({
             links={
               <>
                 <NavbarLink href="/pricing">Pricing</NavbarLink>
-                <NavbarLink href="/about">About</NavbarLink>
+                {/* <NavbarLink href="/about">About</NavbarLink> */}
                 {/* <NavbarLink href="#">Docs</NavbarLink> */}
               </>
             }
             logo={
               <NavbarLogo href="/">
-                <Image src="/logo/teleta-logo-white-transparent.png" alt="teleta" className="" width={85} height={28} />
+                <Image
+                  src="/logo/teleta-logo-black-transparent.png"
+                  alt="teleta"
+                  className="block dark:hidden"
+                  width={85}
+                  height={28}
+                />
+
+                <Image
+                  src="/logo/teleta-logo-white-transparent.png"
+                  alt="teleta"
+                  className="hidden dark:block"
+                  width={85}
+                  height={28}
+                />
               </NavbarLogo>
             }
             actions={
@@ -100,7 +114,7 @@ export default function RootLayout({
                   <FooterLink href="/pricing">Pricing</FooterLink>
                 </FooterCategory>
                 <FooterCategory title="Company">
-                  <FooterLink href="/about">About</FooterLink>
+                  {/* <FooterLink href="/about">About</FooterLink> */}
                   <li className={'text-mist-700 dark:text-mist-400'}>
                     <a href="https://linkedin.com/company/teletadevelopment" target="blank">
                       Linkedin
