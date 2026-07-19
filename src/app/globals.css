@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Inter', system-ui, sans-serif;
+  --font-display: 'Familjen Grotesk', sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
   --color-mist-50: oklch(98.7% 0.002 197.1);

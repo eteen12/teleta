@@ -1,6 +1,3 @@
-import Image from 'next/image'
-
-import { ButtonLinkExternal } from '@/components/elements/button'
 import { Main } from '@/components/elements/main'
 import {
   FooterCategory,
@@ -17,14 +14,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Teleta Development | AI-powered SaaS Solutions',
+  title: 'Teleta Development | Canadian AI Tech Solutions',
   description:
-    'AI-powered SaaS company providing automated software solutions to help businesses streamline workflows and enhance productivity.',
+    'Canadian AI tech company building software that does the work for you. Home of Teleta Vox, the first AI-first CRM built for BC real estate agents.',
 
   openGraph: {
-    title: 'Teleta Development | AI-powered SaaS Solutions',
+    title: 'Teleta Development | Canadian AI Tech Solutions',
     description:
-      'AI-powered SaaS company providing automated software solutions to help businesses streamline workflows and enhance productivity.',
+      'Canadian AI tech company building software that does the work for you. Home of Teleta Vox, the first AI-first CRM built for BC real estate agents.',
     url: 'https://teleta.dev/',
     siteName: 'Teleta Development',
     locale: 'en_US',
@@ -49,7 +46,10 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet"
@@ -61,28 +61,15 @@ export default function RootLayout({
             id="navbar"
             links={
               <>
-                <NavbarLink href="/pricing">Pricing</NavbarLink>
-                {/* <NavbarLink href="/about">About</NavbarLink> */}
-                {/* <NavbarLink href="#">Docs</NavbarLink> */}
+                <NavbarLink href="/#flagship">Teleta Vox</NavbarLink>
+                <NavbarLink href="/#team">Team</NavbarLink>
               </>
             }
             logo={
               <NavbarLogo href="/">
-                <Image
-                  src="/logo/teleta-logo-black-transparent.png"
-                  alt="teleta"
-                  className="block dark:hidden"
-                  width={85}
-                  height={28}
-                />
-
-                <Image
-                  src="/logo/teleta-logo-white-transparent.png"
-                  alt="teleta"
-                  className="hidden dark:block"
-                  width={85}
-                  height={28}
-                />
+                <span className="font-display text-2xl font-medium tracking-[-0.04em] text-mist-950 dark:text-white">
+                  Teleta.
+                </span>
               </NavbarLogo>
             }
             actions={
@@ -90,9 +77,14 @@ export default function RootLayout({
                 {/* <PlainButtonLink href="#" className="max-sm:hidden">
                   Log in
                 </PlainButtonLink> */}
-                <ButtonLinkExternal href="https://www.linkedin.com/company/teletadevelopment/" size="lg">
+                <a
+                  href="https://www.linkedin.com/company/teletadevelopment/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#e2e2e2] px-4 py-2 text-sm/7 font-medium text-mist-950 transition-colors hover:border-mist-950 dark:border-mist-800 dark:text-white dark:hover:border-white"
+                >
                   Contact us
-                </ButtonLinkExternal>
+                </a>
               </>
             }
           />
@@ -111,7 +103,7 @@ export default function RootLayout({
             links={
               <>
                 <FooterCategory title="Product">
-                  <FooterLink href="/pricing">Pricing</FooterLink>
+                  <FooterLink href="/#flagship">Teleta Vox</FooterLink>
                 </FooterCategory>
                 <FooterCategory title="Company">
                   {/* <FooterLink href="/about">About</FooterLink> */}
@@ -131,7 +123,7 @@ export default function RootLayout({
                 <FooterCategory title="Legal"></FooterCategory>
               </>
             }
-            fineprint="© 2025 Teleta Development"
+            fineprint="© 2026 Teleta Development · Canadian AI tech solutions · Kelowna, BC"
           />
         </>
       </body>

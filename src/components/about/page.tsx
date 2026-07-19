@@ -5,7 +5,6 @@ import { ChevronIcon } from '@/components/icons/chevron-icon'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { HeroLeftAlignedWithPhoto } from '@/components/sections/hero-left-aligned-with-photo'
 import { TeamFourColumnGrid, TeamMember } from '@/components/sections/team-four-column-grid'
-import { TestimonialTwoColumnWithLargePhoto } from '@/components/sections/testimonial-two-column-with-large-photo'
 
 export default function Page() {
   return (
@@ -32,22 +31,6 @@ export default function Page() {
         }
       />
 
-      {/* Testimonial */}
-      <TestimonialTwoColumnWithLargePhoto
-        id="testimonial"
-        quote={<p>I&apos;ll be done that by monday.</p>}
-        img={
-          <Image
-            src="/team/ahab.JPG"
-            alt=""
-            className="not-dark:bg-white/75 dark:bg-black/75"
-            width={1400}
-            height={1000}
-          />
-        }
-        name="Ahab Masud"
-        byline="Founding engineer"
-      />
       {/* Team */}
       <TeamFourColumnGrid
         id="team"
@@ -96,19 +79,6 @@ export default function Page() {
             />
           }
           name="Advaith Madhu"
-          byline="Founding engineer"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/team/ahab2.png"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Ahab Masud"
           byline="Founding engineer"
         />
       </TeamFourColumnGrid>
